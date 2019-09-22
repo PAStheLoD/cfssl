@@ -15,14 +15,11 @@ jobs:
 
     - name: Check out code into the Go module directory
       run: |
-        env
-        git fetch -q
+        git clone -q https://github.com/$GITHUB_REPOSITORY
         git checkout -q $GITHUB_SHA
 
     - name: Go-get
       run: |
-        env | grep GOPATH
-        
         go get -v -u github.com/cloudflare/cfssl/cmd/cfssl
         go get -v -u github.com/cloudflare/cfssl/cmd/cfssljson
 
