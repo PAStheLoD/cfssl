@@ -15,7 +15,9 @@ jobs:
 
     - name: Check out code into the Go module directory
       run: |
-        git clone -q https://github.com/$GITHUB_REPOSITORY
+        set -x
+        git clone -q https://github.com/$GITHUB_REPOSITORY repo
+        cd repo
         git checkout -q $GITHUB_SHA
 
     - name: Go-get
