@@ -29,5 +29,5 @@ jobs:
       uses: actions/upload-artifact@master
       with:
         name: cfssl
-        path: /home/go/bin/cfssl
+        path: $HOME/go/bin/cfssl
       
