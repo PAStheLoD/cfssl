@@ -24,10 +24,16 @@ jobs:
       run: |
         go get -v -u github.com/cloudflare/cfssl/cmd/cfssl
         go get -v -u github.com/cloudflare/cfssl/cmd/cfssljson
+        
+    - name: Copy because magic
+      run: |
+        cd ..
+        mkdir artifacts
+        cp $HOME/go/bin/cfssl artifacts/
 
     - name: Put artifacts
       uses: actions/upload-artifact@master
       with:
         name: cfssl
-        path: $HOME/go/bin/cfssl
+        path: artifacts/cfssl
       
