@@ -27,13 +27,16 @@ jobs:
         
     - name: Copy because magic
       run: |
-        cd ..
+        cd  /home/runner/work/cfssl/cfssl/
         mkdir artifacts
         cp $HOME/go/bin/cfssl artifacts/
+        
+        # because it seems actions/upload-artifact has a hardcoded initial directory
+        # https://github.com/actions/upload-artifact/issues/8
 
     - name: Put artifacts
       uses: actions/upload-artifact@master
       with:
         name: cfssl
-        path: artifacts/cfssl
+        path:  /home/runner/work/cfssl/cfssl/artifacts/cfssl
       
